@@ -53,10 +53,10 @@ angular.module("Mac").service("modal", [
     opened: null
 
     modalTemplate: """
-      <div class="modal-overlay hide">
-        <div class="modal">
-          <a mac-modal-close class="close-modal"></a>
-          <div class="modal-content-wrapper"></div>
+      <div class="mac-modal-overlay hide">
+        <div class="mac-modal">
+          <a mac-modal-close class="mac-close-modal"></a>
+          <div class="mac-modal-content-wrapper"></div>
         </div>
       </div>
     """
@@ -117,13 +117,13 @@ angular.module("Mac").service("modal", [
             angular.extend options.attributes, {id}
             element = angular.element(@modalTemplate).attr options.attributes
             wrapper = angular.element(
-              element[0].getElementsByClassName("modal-content-wrapper")
+              element[0].getElementsByClassName("mac-modal-content-wrapper")
             )
             wrapper.html template
 
             if options.overlayClose
               element.bind "click", ($event) =>
-                if angular.element($event.target).hasClass("modal-overlay")
+                if angular.element($event.target).hasClass("mac-modal-overlay")
                   viewScope.$apply => @hide()
 
             if options.controller
@@ -178,7 +178,7 @@ angular.module("Mac").service("modal", [
 
       return unless options.position
 
-      modal  = angular.element(element[0].getElementsByClassName "modal").attr "style", ""
+      modal  = angular.element(element[0].getElementsByClassName "mac-modal").attr "style", ""
       height = modal.outerHeight()
       width  = modal.outerWidth()
 
