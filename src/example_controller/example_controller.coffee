@@ -67,18 +67,6 @@ module.controller "ExampleController", [
   # Selected option tags
   $scope.selected        = [{"name": "United States", "id": "123"}]
 
-  # File Uploader handling
-  $scope.uploadRoute         = "/test_upload"
-  $scope.fileUploaderEnabled = true
-  $scope.uploadPreviews      = []
-  $scope.previewImage        = (preview = {}) ->
-    if /image./.test(preview.type)  then preview.fileData else "/img/file_icon.png"
-  $scope.previewProgress = (preview) ->
-    return width: "#{preview.progress}%"
-
-  $scope.fileUploadSubmit  = ($event, $data) -> console.log "submitted"
-  $scope.fileUploadSuccess = ($data, $status) -> console.log "success"
-
   $scope.startDate = "01/01/2013"
   $scope.minDate   = "07/01/2012"
   $scope.startTime = "04:42 PM"
